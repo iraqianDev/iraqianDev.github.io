@@ -438,6 +438,7 @@ header nav .toggle-menu {
 .portfolio .shuffle li {
   padding: 10px;
   margin-bottom: 60px;
+  cursor: pointer;
 }
 .portfolio .shuffle li.active {
   background-color: var(--main-color);
@@ -508,6 +509,8 @@ header nav .toggle-menu {
 /* video start */
 .video {
   position: relative;
+  min-height: 60vh;
+  overflow: hidden;
 }
 .video::before {
   content: "";
@@ -520,6 +523,8 @@ header nav .toggle-menu {
 }
 .video video {
   width: 100%;
+  scale: 4;
+  rotate: 90deg;
 }
 .video .text {
   width: 100%;
@@ -863,6 +868,7 @@ header nav .toggle-menu {
   width: fit-content;
   margin: 30px auto;
   transition-duration: 0.3s;
+  color: black;
 }
 
 .pricing .plans .plan .foot a:hover {
