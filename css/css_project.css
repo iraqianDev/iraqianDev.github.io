@@ -418,6 +418,7 @@ body {
   padding-top: 60px;
   padding-bottom: 60px;
   background-color: #f6f6f6;
+  width: 100%;
 }
 
 .contact .info {
@@ -438,6 +439,14 @@ body {
   font-weight: 800;
   color: var(--main-color);
   text-decoration: none;
+}
+@media (max-width: 380px) {
+  .contact .info .link {
+    font-size: 20px;
+  }
+  .contact .info .label {
+    font-size: 20px;
+  }
 }
 .contact .info .social {
   display: flex;
@@ -463,3 +472,6 @@ body {
   font-weight: bold;
 }
 /* footer */
+* {
+  outline: red 1px solid;
+}
