@@ -272,8 +272,6 @@ header nav .toggle-menu {
   background-color: var(--main-color);
   border-color: var(--main-color);
 }
-/* landing */
-
 .main-heading {
   text-align: center;
   padding: 50px;
@@ -323,7 +321,8 @@ header nav .toggle-menu {
   color: #777;
   width: 100%;
 }
-/* services */
+/* landing end */
+/* services start */
 .services {
   padding-block: var(--section-padding);
 }
@@ -362,7 +361,7 @@ header nav .toggle-menu {
     margin-right: 0;
   }
 }
-/* services */
+/* services end */
 /* start design */
 .design {
   padding-block: var(--section-padding);
