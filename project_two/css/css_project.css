@@ -522,8 +522,11 @@ header nav .toggle-menu {
 }
 .video video {
   width: 100%;
-  scale: 4;
-  rotate: 90deg;
+  transform: rotate(90deg) scale(4);
+  -webkit-transform: rotate(90deg) scale(4);
+  -moz-transform: rotate(90deg) scale(4);
+  -ms-transform: rotate(90deg) scale(4);
+  -o-transform: rotate(90deg) scale(4);
 }
 .video .text {
   width: 100%;
@@ -571,6 +574,12 @@ header nav .toggle-menu {
 @media (max-width: 767px) {
   .about img {
     bottom: -60px;
+    margin-top: -60px;
+  }
+}
+@media (max-width: 500px) {
+  .about img {
+    bottom: -30px;
     margin-top: -60px;
   }
 }
@@ -808,7 +817,6 @@ header nav .toggle-menu {
     border-color: white;
   }
 }
-
 .pricing .plans {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
