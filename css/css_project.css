@@ -20,7 +20,27 @@ ul {
   --trans-duration: 0.3s;
 }
 /* variables */
+/* scrollbar start */
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #5e08ce;
+}
+/* scrollbar end */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 3rem;
