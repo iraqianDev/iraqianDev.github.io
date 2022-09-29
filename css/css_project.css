@@ -341,7 +341,7 @@ body {
 }
 .work .container .box .text .flex {
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 .work .container .box .text a {
   display: flex;
