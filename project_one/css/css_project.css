@@ -197,6 +197,7 @@ body {
   height: calc(100vh - 50px);
   background-image: url(../img/85838144-black-and-white-mountain-in-switzerland.jpg);
   background-size: cover;
+  background-position-x: center;
   position: relative;
 }
 .landing .intro {

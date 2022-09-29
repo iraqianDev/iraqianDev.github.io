@@ -144,7 +144,9 @@ body {
   background-color: var(--background);
   padding-top: 10vh;
   text-align: center;
-  height: calc(100vh - 60px);
+}
+.landing .container {
+  height: 100%;
 }
 .landing .container h1 {
   font-weight: 900;
@@ -154,14 +156,21 @@ body {
   font-size: 1.5rem;
 }
 .landing .container .pfp {
-  margin-block: 5vh;
   width: 200px;
+  left: 50%;
+}
+.landing .container .img {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 50px;
 }
 .landing .container .device {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-top: auto;
   width: 750px;
 }
 @media (max-width: 773px) {

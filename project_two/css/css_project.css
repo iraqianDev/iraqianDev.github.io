@@ -179,6 +179,7 @@ header nav .toggle-menu {
   background-color: black;
   background-image: url(../img/bg.jpg);
   background-size: cover;
+  background-position-x: center;
   position: relative;
 }
 .landing .overlay {
