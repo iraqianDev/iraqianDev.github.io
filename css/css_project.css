@@ -192,9 +192,14 @@ body {
   color: var(--background);
   text-align: center;
 }
+.intro .text h2::selection,
+.intro .text p::selection {
+  background-color: var(--background);
+  color: var(--main-color);
+}
 .intro .text {
   max-width: 75ch;
-  padding: 10rem 0 15rem;
+  padding: 7rem 0 10rem;
   margin: 0 auto;
 }
 .intro .text h2 {
@@ -445,6 +450,10 @@ body {
   color: var(--background);
   font-weight: bold;
   font-size: 1.5rem;
+}
+.copied q::selection {
+  background-color: var(--background);
+  color: var(--main-color);
 }
 .copied ul {
   margin-top: 30px;
