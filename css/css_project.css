@@ -92,7 +92,7 @@ body {
 /* big screens */
 @media (min-width: 1300px) {
   .container {
-    width: 1290px;
+    width: 1270px;
   }
 }
 ::selection {
@@ -142,11 +142,8 @@ body {
 .landing {
   position: relative;
   background-color: var(--background);
-  padding-top: 10vh;
+  padding-top: 10rem;
   text-align: center;
-}
-.landing .container {
-  height: 100%;
 }
 .landing .container h1 {
   font-weight: 900;
@@ -167,7 +164,7 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
-  gap: 50px;
+  gap: 60px;
 }
 .landing .container .device {
   margin-top: auto;
@@ -441,8 +438,8 @@ body {
   position: relative;
   box-shadow: none;
   background-color: var(--main-color);
-  min-height: 30vh;
   text-align: center;
+  padding-block: 5rem;
 }
 .copied q {
   color: var(--background);
