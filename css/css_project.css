@@ -391,6 +391,7 @@ body {
   position: relative;
   border-radius: 15px;
   overflow: hidden;
+  background-color: white;
 }
 .work .container .box img {
   width: 100%;
