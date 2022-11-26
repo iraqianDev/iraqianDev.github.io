@@ -158,7 +158,6 @@ body {
   top: 0px;
   z-index: 10;
   color: inherit;
-  position: relative;
 }
 .nav .container ul {
   display: flex;
