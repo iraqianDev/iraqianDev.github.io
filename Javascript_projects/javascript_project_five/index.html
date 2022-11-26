@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site title -->
+    <title>dark mode switch</title>
+    <!-- description of site -->
+    <meta name="description" content="Live review of javascript code projects">
+    <!-- logo on the website name -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/person.svg" />
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        height: calc(100vh - 80px);
+        width: 100vw;
+        transition-delay: 0.1s;
+    }
+    img{
+        width: 80px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .darkMode {
+    color: white;
+    background-color: black;
+    }
+    h1{
+        text-align: center;
+    }
+</style>
+<body>
+
+    <h1>Dark Mode Switch</h1>
+    <img src="/img/sun.svg" class="darkModeButton">
+
+</body>
+</html>
+<script>
+    // dark mode switch
+let btn = document.querySelector(".darkModeButton")
+
+btn.addEventListener("click",  () => {
+
+    if(!localStorage.getItem("darkMode")){
+        localStorage.setItem("darkMode", "true")
+        document.documentElement.style.setProperty('--background', 'black');
+        document.body.classList.add("darkMode")
+        btn.src = "/img/moon.svg"
+
+    }else if(localStorage.getItem("darkMode") === "true"){
+        localStorage.setItem("darkMode", "false")
+        document.documentElement.style.setProperty('--background', 'white');
+        document.body.classList.remove("darkMode")
+        btn.src = "/img/sun.svg"
+
+    }else if(localStorage.getItem("darkMode") === "false"){
+        localStorage.setItem("darkMode", "true")
+        document.documentElement.style.setProperty('--background', 'black');
+        document.body.classList.add("darkMode")
+        btn.src = "/img/moon.svg"
+    }
+}
+)
+
+
+if(localStorage.getItem("darkMode") === "false"){
+    document.documentElement.style.setProperty('--background', 'white');
+    document.body.classList.remove("darkMode")
+    btn.src = "/img/sun.svg"
+
+}else if(localStorage.getItem("darkMode") === "true"){
+    document.documentElement.style.setProperty('--background', 'black');
+    document.body.classList.add("darkMode")
+    btn.src = "/img/moon.svg"
+}
+    </script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site title -->
+    <title>Scroll progress bar</title>
+    <!-- description of site -->
+    <meta name="description" content="Live review of javascript code projects">
+    <!-- logo on the website name -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/person.svg" />
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    div:not(.scroller){
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: White;
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .scroller{
+        position: fixed;
+        top: 0;
+        height: 5px;
+        width: 0;
+        background-color: white;
+        z-index: 100;
+    }
+</style>
+<body>
+    <div class="scroller"></div>
+    <div style="background-color: red;">Scroll down</div>
+    <div style="background-color: green;">one</div>
+    <div style="background-color: blue;">two</div>
+    <div style="background-color: black;">three</div>
+
+</body>
+</html>
+<script>
+    // Scroller progress
+    window.addEventListener(`scroll`, () => {
+        let scroller = document.querySelector(".scroller")
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+        let scrollTop = document.documentElement.scrollTop
+        scroller.style.width = `${(scrollTop / height) * 100}%`
+    })
+    </script>

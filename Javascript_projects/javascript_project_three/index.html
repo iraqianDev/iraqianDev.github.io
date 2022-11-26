@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site title -->
+    <title>Count down</title>
+    <!-- description of site -->
+    <meta name="description" content="Live review of javascript code projects">
+        <!-- logo on the website name -->
+        <link rel="shortcut icon" type="image/x-icon" href="../../img/person.svg" />
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    gap: 10px;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+h1{
+    height: 150px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #2196f3;
+    width: 100px;
+}
+p{
+    margin-top: 10px;
+    border-top: 1px solid #2196f3;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+span{
+margin-top: 20px;
+color: #2196f3;
+font-weight: bold;
+}
+h2{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+}
+button{
+    border: none;
+    outline: none;
+    background-color: #2196f3;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+@media (max-width: 437px) {
+    .box{
+        flex-direction: column;
+    }
+    h2{
+        top: 5%;
+    }
+    button{
+        bottom: 3%;
+    }
+}
+</style>
+<body>
+<h2>Black Friday In:</h2>
+<div class="box">
+<h1><span class="days">000</span><p>Days</p></h1>
+<h1><span class="hours">00</span><p>hours</p></h1>
+<h1><span class="minutes">00</span><p>minutes</p></h1>
+<h1><span class="seconds">00</span><p>seconds</p></h1>
+</div>
+</body>
+</html>
+<script>
+
+let selectedDate = new Date("Nov 24 2023").getTime()
+
+
+
+let counter = setInterval(() => {
+    let dateNow = new Date().getTime()
+    let dateDiff = selectedDate - dateNow
+
+    let days = Math.floor(dateDiff / 1000 / 60 / 60 / 24) 
+    let hours = Math.floor((dateDiff % (1000 * 60 * 60 * 24)) / 1000 / 60 / 60)
+    let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / 1000 / 60)
+    let seconds = Math.floor((dateDiff % (1000 * 60 )) / 1000 )
+    document.querySelector(".days").innerHTML = days < 10 ? `0${days}`: days 
+    document.querySelector(".hours").innerHTML = hours < 10 ? `0${hours}`: hours 
+    document.querySelector(".minutes").innerHTML = minutes < 10 ? `0${minutes}`: minutes 
+    document.querySelector(".seconds").innerHTML = seconds < 10 ? `0${seconds}`: seconds 
+
+
+    if(dateDiff <= 0){
+        clearInterval(counter)
+    }
+}
+, 1000)
+
+
+
+</script>

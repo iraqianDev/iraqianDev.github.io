@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site title -->
+    <title>Scroll to top</title>
+    <!-- description of site -->
+    <meta name="description" content="Live review of javascript code projects">
+    <!-- logo on the website name -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/person.svg" />
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    div:not(.scroller){
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: White;
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .scroll{
+        position: fixed;;
+        bottom: 20px;
+        right: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        display: grid;
+        place-content: center;
+        height: 30px;
+        width: 30px;
+        padding: 10px;
+        background-color: white;
+        z-index: 100;
+        cursor: pointer;
+        border-radius: 5px;
+        transform: translateX(100px);
+        transition-duration: .3s;
+    }
+    .active{
+        transform: translateX(0px);
+    }
+</style>
+<body>
+    <span class="scroll">&ShortUpArrow;</span>
+    <div class="scroller"></div>
+    <div style="background-color: red;">Scroll down</div>
+    <div style="background-color: green;">one</div>
+    <div style="background-color: blue;">two</div>
+    <div style="background-color: black;">three</div>
+
+</body>
+</html>
+<script>
+    // Scroll to top 
+    span = document.querySelector(".scroll")
+
+    document.body.onscroll = () => {
+        if(scrollY > 600){
+            span.classList.add("active")
+        }else{
+            span.classList.remove("active")
+        }
+    }
+
+    span.onclick = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }
+    </script>

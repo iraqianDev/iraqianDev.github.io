@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site title -->
+    <title>Currency Exchange</title>
+    <!-- description of site -->
+    <meta name="description" content="Live review of javascript code projects">
+        <!-- logo on the website name -->
+        <link rel="shortcut icon" type="image/x-icon" href="../../img/person.svg" />
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+        font-family:sans-serif;
+    }
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    box-sizing:content-box;
+    flex-direction: column;
+}
+.box{
+    box-shadow: 0 0 10px #ddd;
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.box .left{
+    display: flex;
+    flex-direction: column;
+}
+.box .left > *{
+    padding: 10px;
+}
+span{
+    margin-inline: 20px;
+    color: green;
+}
+select{
+    box-shadow: 0 0 10px #ddd;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+input{
+    border: none;
+    outline: none;
+    background-color: #eee;
+    border-bottom: 1px solid black;
+}
+button{
+    margin-top: 20px;
+    color: white;
+    background-color: #6e07f3;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+p{
+    font-weight: bold;
+    margin-top: 30px;
+}
+</style>
+<body>
+<h1>Change Currency</h1>
+<div class="box">
+    <div class="left">
+        <select name="USD" id="">
+            <option value="USD">USD</option>
+        </select>
+        <input type="number" placeholder="0" min="1" class="USD">
+    </div>
+    <span>&rlarr;</span>
+    <div class="left">
+        <select name="other" id="currency">
+            <option value="EUR">EUR</option>
+            <option value="CAD">CAD</option>
+            <option value="EGP">EGP</option>
+            <option value="SAR">SAR</option>
+        </select>
+        <input type="number" readonly style="cursor:default;" placeholder="0" class="res">
+    </div>
+</div>
+<button class="btn">Exchange</button>
+<p>*Important Note: this is dynamic and the exchange rate is up to date with current market</p>
+</body>
+</html>
+<script>
+fetch(`https://api.currencyfreaks.com/latest?apikey=06071b9927be4143a0dfc0843cdf2854`).then((res) => {
+    let myData = res.json()
+    return myData
+}).then((currency) => {
+    let usd = document.querySelector(".USD")
+    let money = document.querySelector("#currency")
+    let btn = document.querySelector(".btn")
+    usd.oninput = () => {
+        document.querySelector(".res").value = (usd.value * currency.rates[money.value]).toFixed(2)
+    }
+    money.onclick = () => {
+        document.querySelector(".res").value = (usd.value * currency.rates[money.value]).toFixed(2)
+    }
+    btn.onclick = () => {
+        document.querySelector(".res").value = (usd.value * currency.rates[money.value]).toFixed(2)
+    }
+}).catch((error) => {
+    console.log(error)
+})
+    </script>
