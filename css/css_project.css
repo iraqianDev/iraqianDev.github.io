@@ -137,10 +137,10 @@ body {
 }
 @keyframes upa {
   0% {
-    transform: translateY(-5px);
+    bottom: 25px;
   }
   100% {
-    transform: translateY(0);
+    bottom: 20px;
   }
 }
 /* cool stuff end*/
