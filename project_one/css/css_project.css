@@ -119,13 +119,7 @@ body {
 }
 .header .links {
   position: relative;
-}
-.header .links:hover .icon span:nth-child(2) {
-  width: 100%;
-}
-.header .links:hover ul {
-  display: block;
-  z-index: 10;
+  cursor: pointer;
 }
 .header .links .icon {
   width: 30px;
@@ -189,6 +183,13 @@ body {
 }
 .header .links ul li:not(:last-child) a {
   border-bottom: #ddd 2px solid;
+}
+.header .toggle-on .icon span:nth-child(2) {
+  width: 100%;
+}
+.header .toggle-on ul {
+  display: block;
+  z-index: 10;
 }
 /* Headers End */
 /* landing start */

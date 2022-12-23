@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site title -->
+    <title>To-Do list app with localStorage</title>
+    <!-- description of site -->
+    <meta name="description" content="Live review of javascript code projects">
+    <!-- logo on the website name -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/person.svg" />
+        <style>
+            body {
+            font-family: Arial, Helvetica, sans-serif;
+            }
+            .container {
+            width: 500px;
+            margin: 20px auto;
+            }
+            .form {
+            background-color: #eee;
+            border-radius: 6px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            }
+            .input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            flex: 1;
+            }
+            .input:focus {
+            outline: none;
+            }
+            .add {
+            border: none;
+            background-color: #f44336;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin-left: 10px;
+            cursor: pointer;
+            }
+            .tasks {
+            background-color: #eee;
+            margin-top: 10px;
+            border-radius: 6px;
+            padding: 20px;
+            }
+            .tasks .task {
+            background-color: white;
+            padding: 10px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            }
+            .tasks .task:not(:last-child) {
+            margin-bottom: 15px;
+            }
+            .tasks .task:hover {
+            background-color: #f7f7f7;
+            }
+            .tasks .task.done:not(span) {
+            opacity: 0.5;
+            }
+            .tasks .task span {
+            font-weight: bold;
+            font-size: 10px;
+            background-color: red;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            cursor: pointer;
+            }
+            button{
+                margin-top: 10px;
+                color: White;
+                background-color: red;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            h1{
+                text-align: center;
+                padding-block: 15px;
+            }
+        </style>
+        </head>
+        <body>
+            <h1>To-Do list</h1>
+        <div class="container">
+            <div class="form">
+            <input type="text" class="input" />
+            <input type="submit" class="add" value="Add Task" />
+            </div>
+            <button class="clear">Clear all</button>
+            <div class="tasks"></div>
+        </div>
+        </body>
+</html>
+<script>
+let input = document.querySelector("input")
+let submit = document.querySelector(".add")
+let tasksDiv = document.querySelector(".tasks")
+
+///empty array to store the tasks
+let arrayOfTasks = [];
+
+let btn = document.querySelector("button")
+btn.onclick = () => {
+    tasksDiv.innerHTML = ""
+    localStorage.clear()
+}
+
+/// check if there's task in local storage
+if(localStorage.getItem("tasks")){
+    arrayOfTasks = JSON.parse(localStorage.getItem("tasks"));
+}
+
+getDataFromLocalStorage()
+
+/// Add task
+submit.onclick = function(){
+    if(input.value !== ""){
+        addTaskToArray(input.value); /// add task to array of tasks
+        input.value = ""; /// empty input field
+    }
+}
+
+/// click on task element
+tasksDiv.addEventListener("click", (e) => {
+    /// delete button
+    if (e.target.classList.contains("del")){
+        /// remove task from local storage
+        deleteTaskWith(e.target.parentElement.getAttribute("data-id"));
+        /// remove element from page
+        e.target.parentElement.remove()
+    }
+    ///task element 
+    if (e.target.classList.contains("task")){
+        ///toggle completed for the task
+        toggleStatusTaskWith(e.target.getAttribute("data-id"))
+        ///toggle done class
+        e.target.classList.toggle("done")
+    }
+})
+
+function addTaskToArray(taskText){
+    /// task data
+    const task = {
+        id: Date.now(),
+        title: taskText,
+        completed: false,
+    };
+    /// push task to array of tasks
+    arrayOfTasks.push(task)
+    /// add tasks to page
+    addElementsToPageFrom(arrayOfTasks)
+    /// add task to local storage
+    addDataToLocalStorage(arrayOfTasks);
+}
+
+function addElementsToPageFrom(arrayOfTasks){
+    /// empty task div
+    tasksDiv.innerHTML = "";
+    /// looping on array of tasks
+    arrayOfTasks.forEach((task) => {
+        /// make task
+        let div = document.createElement("div");
+        div.className = "task";
+        /// check if task is done
+        if (task.completed){
+            div.className = "task done"
+        }
+        div.setAttribute("data-id", task.id);
+        div.innerHTML = `${task.title} <span class="del">Delete</span>`
+        tasksDiv.appendChild(div);
+    })
+}
+
+function addDataToLocalStorage(arrayOfTasks){
+    window.localStorage.setItem("tasks", JSON.stringify(arrayOfTasks)); /// convert object to string
+}
+
+function getDataFromLocalStorage(){
+    let data = window.localStorage.getItem("tasks");
+    if (data){
+        let tasks = JSON.parse(data)
+        addElementsToPageFrom(tasks) /// add elements to page from the localStorage
+    }
+}
+
+function deleteTaskWith(taskId){
+    arrayOfTasks = arrayOfTasks.filter((task) => task.id != taskId);
+    addDataToLocalStorage(arrayOfTasks)
+}
+
+function toggleStatusTaskWith(taskId){
+    for (let i = 0; i < arrayOfTasks.length; i++){
+        if (arrayOfTasks[i].id == taskId){
+            arrayOfTasks[i].completed == false ? arrayOfTasks[i].completed = true : arrayOfTasks[i].completed = false
+        }
+    }
+    addDataToLocalStorage(arrayOfTasks)
+}
+    </script>
