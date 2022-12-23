@@ -444,6 +444,13 @@
 <script>
   let btn = document.querySelector(".toggle-menu")
 
-  btn.onclick = () => {btn.classList.toggle("toggle-on")}
+  btn.onclick = () => {
+    btn.classList.toggle("toggle-on")
+    if(btn.classList.contains("toggle-on")){
+      btn.classList.replace("fa-bars", "fa-x")
+    }else{
+      btn.classList.replace("fa-x", "fa-bars")
+    }
+    }
 </script>
 </html>
