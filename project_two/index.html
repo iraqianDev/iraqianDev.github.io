@@ -133,63 +133,63 @@
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet exercitationem eius esse, omnis ducimus nulla.</p>
   </div>
 <ul class="shuffle">
-  <li>App</li>
-  <li class="active">photo</li>
-  <li>print</li>
-  <li>Web</li>
+  <li class="show-button" data-cat="one">App</li>
+  <li class="active show-button" data-cat="two">photo</li>
+  <li class="show-button" data-cat="three">print</li>
+  <li class="show-button" data-cat="four">Web</li>
 </ul>
 </div>
 <div class="img-container">
-  <div class="box">
+  <div class="box two one">
     <img loading="lazy" src="img/bg.jpg" alt="">
     <div class="caption">
       <h4>Awsome img</h4>
       <p>photographyt</p>
     </div>
   </div>
-  <div class="box">
+  <div class="box two one">
     <img loading="lazy" src="img/bg.jpg" alt="">
     <div class="caption">
       <h4>Awsome img</h4>
       <p>photographyt</p>
     </div>
   </div>
-  <div class="box">
+  <div class="box two one">
     <img loading="lazy" src="img/bg.jpg" alt="">
     <div class="caption">
       <h4>Awsome img</h4>
       <p>photographyt</p>
     </div>
   </div>
-  <div class="box">
+  <div class="box two three">
     <img loading="lazy" src="img/bg.jpg" alt="">
     <div class="caption">
       <h4>Awsome img</h4>
       <p>photographyt</p>
     </div>
   </div>
-  <div class="box">
+  <div class="box two three four">
     <img loading="lazy" src="img/bg.jpg" alt="">
     <div class="caption">
       <h4>Awsome img</h4>
       <p>photographyt</p>
     </div>
   </div>
-  <div class="box">
+  <div class="box two four">
     <img loading="lazy" src="img/bg.jpg" alt="">
     <div class="caption">
       <h4>Awsome img</h4>
       <p>photographyt</p>
     </div>
   </div>
-  <div class="box">
+  <div class="box two four">
     <img loading="lazy" src="img/bg.jpg" alt="">
     <div class="caption">
       <h4>Awsome img</h4>
       <p>photographyt</p>
     </div>
   </div>
-  <div class="box">
+  <div class="box two four">
     <img loading="lazy" src="img/bg.jpg" alt="">
     <div class="caption">
       <h4>Awsome img</h4>
@@ -452,5 +452,33 @@
       btn.classList.replace("fa-x", "fa-bars")
     }
     }
+
+
+    let nav = document.querySelectorAll(".show-button")
+    let pic = document.querySelectorAll(".img-container .box")
+
+    nav.forEach(function(li) { // check every nav li
+        li.addEventListener("click", function(){ 
+
+            nav.forEach(function(el){ // remove active class from others
+
+                el.classList.remove("active")
+
+            })
+            pic.forEach(function(p){ // check every img
+
+                if(p.classList.contains(li.getAttribute("data-cat"))){ // if img classList contains the data-cat then keep
+
+                    p.style.display = "block"
+
+                }else{ // else remove
+                    p.style.display = "none"
+                }
+            })
+
+            li.classList.add("active") // add active element to the selected li
+        })
+    })
+
 </script>
 </html>

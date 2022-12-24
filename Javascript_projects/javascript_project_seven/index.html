@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site title -->
+    <title>Navigation switcher</title>
+    <!-- description of site -->
+    <meta name="description" content="Live review of javascript code projects">
+    <!-- logo on the website name -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/person.svg" />
+</head>
+<style>
+    body {
+font-family: Arial, Helvetica, sans-serif;
+}
+.switcher {
+display: flex;
+justify-content: center;
+list-style: none;
+padding: 0;
+}
+.switcher li {
+padding: 10px 15px;
+font-weight: bold;
+cursor: pointer;
+background-color: #eee;
+min-width: 105px;
+text-align: center;
+transition: 0.2s;
+}
+.switcher li.active,
+.switcher li:hover {
+background-color: red;
+color: white;
+}
+.gallery {
+display: flex;
+flex-wrap: wrap;
+max-width: 800px;
+margin: auto;
+}
+.gallery img {
+margin-bottom: 10px;
+transition: 0.3s;
+margin-left: 5px;
+margin-right: 5px;
+}
+@media (max-width: 555px) {
+    body{
+        transform: scale(0.7);
+    }
+}
+</style>
+<body>
+
+    <ul class="switcher">
+        <li class="active" data-cat="all">All Work</li>
+        <li data-cat="web">Web</li>
+        <li data-cat="gfx">Graphic</li>
+        <li data-cat="marketing">Marketing</li>
+    </ul>
+    <div class="gallery">
+        <img decoding="async" class="all web" src="https://via.placeholder.com/150/F00/FFF?text=Web" alt="" />
+        <img decoding="async" class="all web" src="https://via.placeholder.com/150/F00/FFF?text=Web" alt="" />
+        <img decoding="async" class="all gfx" src="https://via.placeholder.com/150/00F/FFF?text=Graphic" alt="" />
+        <img decoding="async" class="all gfx" src="https://via.placeholder.com/150/00F/FFF?text=Graphic" alt="" />
+        <img decoding="async" class="all marketing" src="https://via.placeholder.com/150/000/FFF?text=Marketing" alt="" />
+        <img decoding="async" class="all web" src="https://via.placeholder.com/150/F00/FFF?text=Web" alt="" />
+        <img decoding="async" class="all web" src="https://via.placeholder.com/150/F00/FFF?text=Web" alt="" />
+        <img decoding="async" class="all marketing" src="https://via.placeholder.com/150/000/FFF?text=Marketing" alt="" />
+        <img decoding="async" class="all marketing" src="https://via.placeholder.com/150/000/FFF?text=Marketing" alt="" />
+        <img decoding="async" class="all gfx" src="https://via.placeholder.com/150/00F/FFF?text=Graphic" alt="" />
+    </div>
+    <div class="test"></div>
+</body>
+<script async>
+    let nav = document.querySelectorAll("li")
+    let pic = document.querySelectorAll("img")
+
+    nav.forEach(function(li) { // check every nav li
+        li.addEventListener("click", function(){ 
+
+            nav.forEach(function(el){ // remove active class from others
+
+                el.classList.remove("active")
+
+            })
+            pic.forEach(function(p){ // check every img
+
+                if(p.classList.contains(li.getAttribute("data-cat"))){ // if img classList contains the data-cat then keep
+
+                    p.style.display = "flex"
+
+                }else{ // else remove
+                    p.style.display = "none"
+                }
+            })
+
+            li.classList.add("active") // add active element to the selected li
+        })
+    })
+
+</script>
+</html>

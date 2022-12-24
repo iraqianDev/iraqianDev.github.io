@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site title -->
+    <title>Random serial generator</title>
+    <!-- description of site -->
+    <meta name="description" content="Live review of javascript code projects">
+    <!-- logo on the website name -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/person.svg" />
+</head>
+<style>
+    body{
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+.serial {
+max-width: 32ch;
+min-width: fit-content;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+background-color: #eee;
+margin: 40px auto 0;
+border-radius: 4px;
+font-size: 22px;
+font-weight: bold;
+height: 66.5px;
+}
+.generate {
+display: block;
+width: fit-content;
+margin: 20px auto 0;
+background-color: #6e07f3;
+color: white;
+padding: 10px 20px;
+border-radius: 4px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.2s;
+user-select: none;
+}
+.generate:hover {
+background-color: #680ae4;
+}
+#input{
+    width: 200px;
+}
+</style>
+<body>
+
+    <div class="serial">Serial</div>
+    <label for="input">Range 8-27</label>
+    <input type="range" min="8" max="27" id="input" value="8">
+    <span class="generate">Generate</span>
+
+</body>
+<script>
+
+let gen = document.querySelector(".generate")
+let serial = document.querySelector("input")
+let value = document.querySelector(".serial")
+
+gen.onclick = () => {
+    random = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*"
+    amount = serial.value
+    finalValue = ""
+
+    for(i = 0; i < amount; i++){
+        randomNumber = Math.floor(Math.random() * random.length)
+        finalValue += random[randomNumber]
+    }
+    value.innerHTML = finalValue
+}
+
+</script>
+</html>
