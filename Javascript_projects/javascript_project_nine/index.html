@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site title -->
+    <title>number rising on scroll</title>
+    <!-- description of site -->
+    <meta name="description" content="Live review of javascript code projects">
+    <!-- logo on the website name -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/person.svg" />
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: White;
+        font-size: 50px;
+        font-weight: bold;
+        border-bottom: 1px solid white;
+    }
+    .custom-number{
+        background-color: #eee;
+        color: black;
+        display: flex;
+        gap: 10px;
+    }
+    .custom-number span{
+        width: 100px;
+        height: 70px;
+        display: grid;
+        place-items: center;
+    }
+    .custom-number span:not(:last-child){
+        border-right: 1px solid black;
+    }
+    @media (max-width: 480px) {
+        .custom-number span{
+        width: 80px;
+        font-size: 40px;
+    }
+    }
+</style>
+<body>
+
+    <div style="background-color: rgba(0, 0, 0, 0.671);">Scroll down</div>
+    <div style="background-color: rgba(0, 0, 0, 0.5);">one</div>
+    <div style="background-color: rgba(0, 0, 0, 0.4);">two</div>
+    <div class="custom-number">
+        <span class="rise" data-goal="99">0</span>
+        <span class="rise" data-goal="200">0</span>
+        <span class="rise" data-goal="460">0</span>
+        <span class="rise" data-goal="690">0</span>
+    </div>
+    <div style="background-color: rgba(0, 0, 0, 0.35);">three</div>
+
+</body>
+</html>
+<script>
+
+let span = document.querySelectorAll(".custom-number .rise")
+let section = document.querySelector(`.custom-number`)
+let start = false
+
+window.onscroll = () =>{
+    if(window.scrollY >= section.offsetTop - 200){
+        if(!start){
+            span.forEach(startCount)
+        }
+        start = true
+    }
+}
+
+function startCount(ele){
+    let goal = ele.dataset.goal;
+    let count = setInterval(() =>{
+        ele.textContent++
+        if(ele.textContent == goal){
+            clearInterval(count)
+        }
+    }, 1000 / goal)
+}
+
+
+</script>

@@ -228,22 +228,22 @@
   <div class="container">
     <div class="box">
       <i class="fas fa-mug-saucer"></i>
-      <div class="number">1.235</div>
+      <div class="number" data-goal="1500">0</div>
       <p>coffee drinks</p>
     </div>
     <div class="box">
       <i class="fas fa-mug-saucer"></i>
-      <div class="number">1.235</div>
+      <div class="number" data-goal="900">0</div>
       <p>coffee drinks</p>
     </div>
     <div class="box">
       <i class="fas fa-mug-saucer"></i>
-      <div class="number">1.235</div>
+      <div class="number" data-goal="1000">0</div>
       <p>coffee drinks</p>
     </div>
     <div class="box">
       <i class="fas fa-mug-saucer"></i>
-      <div class="number">1.235</div>
+      <div class="number" data-goal="500">0</div>
       <p>coffee drinks</p>
     </div>
   </div>
@@ -442,6 +442,8 @@
 <!-- footer end -->
 </body>
 <script>
+
+  //start of nav button
   let btn = document.querySelector(".toggle-menu")
 
   btn.onclick = () => {
@@ -453,32 +455,50 @@
     }
     }
 
-
+      //start of section selection
     let nav = document.querySelectorAll(".show-button")
     let pic = document.querySelectorAll(".img-container .box")
 
     nav.forEach(function(li) { // check every nav li
         li.addEventListener("click", function(){ 
-
             nav.forEach(function(el){ // remove active class from others
-
                 el.classList.remove("active")
-
             })
             pic.forEach(function(p){ // check every img
-
                 if(p.classList.contains(li.getAttribute("data-cat"))){ // if img classList contains the data-cat then keep
-
                     p.style.display = "block"
-
                 }else{ // else remove
                     p.style.display = "none"
                 }
             })
-
             li.classList.add("active") // add active element to the selected li
         })
     })
+
+
+    //start of number rising
+    let span = document.querySelectorAll(".container .box .number")
+    let section = document.querySelector(`.stats`)
+    let start = false
+
+window.onscroll = () =>{
+    if(window.scrollY >= section.offsetTop - 200){
+        if(!start){
+            span.forEach(startCount)
+        }
+        start = true
+    }
+}
+
+function startCount(ele){
+    let goal = ele.dataset.goal;
+    let count = setInterval(() =>{
+        ele.textContent++
+        if(ele.textContent == goal){
+            clearInterval(count)
+        }
+    }, 2000 / goal)
+}
 
 </script>
 </html>
