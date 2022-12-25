@@ -47,6 +47,19 @@
 <!-- nav -->
 <!-- landing -->
 <div class="landing">
+  <div class="Carousel">
+    <ul>
+      <li class="slide">
+        <img src="img/bg2.webp" alt="">
+      </li>
+      <li class="slide active">
+          <img src="img/bg.jpg" alt="">
+      </li>
+        <li class="slide">
+            <img src="img/bg3.webp" alt="">
+        </li>
+    </ul>
+</div>
   <div class="overlay">
   <div class="text">
     <div class="content">
@@ -55,8 +68,8 @@
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ipsa vitae cumque soluta vero id cum quasi voluptatum debitis nesciunt.</p>
     </div>
   </div>
-  <i class="fas fa-angle-left change-background fa-2x"></i>
-  <i class="fas fa-angle-right change-background fa-2x"></i>
+  <i class="fas fa-angle-left change-background fa-2x carousel-button back"></i>
+  <i class="fas fa-angle-right change-background fa-2x carousel-button next"></i>
   <ul class="bullets">
   <li></li>
   <li class="active"></li>
@@ -499,6 +512,33 @@ function startCount(ele){
         }
     }, 2000 / goal)
 }
+
+
+
+//img Carousel
+let btnImg = document.querySelectorAll(".carousel-button")
+
+btnImg.forEach((ele) => {
+    ele.addEventListener("click", () => {
+        let offset = ele.dataset.button === "next" ? 1 : -1
+        let slides = document.querySelectorAll(".slide")
+
+        let activeSlide = document.querySelector(".active")
+        let newIndex = [...slides].indexOf(activeSlide) + offset
+        
+        if(newIndex < 0){newIndex = slides.length -1}
+        if(newIndex >= slides.length){newIndex = 0}
+
+        slides[newIndex].classList.add("active")
+        activeSlide.classList.remove("active")
+
+        let bullets = document.querySelectorAll(".landing .bullets li")
+        let activeBullet = document.querySelector(".landing .bullets .active")
+
+        bullets[newIndex].classList.add("active")
+        activeBullet.classList.remove("active")
+    })
+})
 
 </script>
 </html>

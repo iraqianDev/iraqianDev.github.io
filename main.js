@@ -23,7 +23,7 @@ window.addEventListener(`scroll`, () => {
     // Scroll to top 
 span = document.querySelector(".scroll")
 document.body.onscroll = () => {
-    if(scrollY > 600){
+    if(scrollY > 100){
         span.classList.add("active")
     }else{
         span.classList.remove("active")

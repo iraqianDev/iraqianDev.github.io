@@ -26,10 +26,17 @@
         font-size: 50px;
         font-weight: bold;
     }
-
+    .scroller {
+    position: fixed;
+    top: 0;
+    height: 5px;
+    width: 0;
+    background-color: white;
+    z-index: 100;
+}
 </style>
 <body>
-
+    <div class="scroller"></div>
     <div style="background-color: red;">Scroll down</div>
     <div style="background-color: green;">one</div>
     <div style="background-color: blue;">two</div>

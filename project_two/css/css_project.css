@@ -178,20 +178,34 @@ body {
 .landing {
   min-height: 100vh;
   background-color: black;
-  background-image: url(../img/bg.jpg);
-  background-size: cover;
-  background-position-x: center;
+  position: relative;
+  overflow: hidden;
+}
+.landing .Carousel {
+  height: 100vh;
+  width: 100vw;
   position: relative;
 }
-.landing .overlay {
+.landing .slide {
   position: absolute;
-  left: 0;
-  top: 0;
+  inset: 0;
+  opacity: 0;
+  transition-duration: 0.2s;
+  transition-delay: 0.2s;
+}
+.landing .active {
+  opacity: 1;
+  transition-delay: 0s;
+}
+.landing img {
+  display: block;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.397);
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.5);
 }
-.landing .text {
+.landing .landing .text {
   position: absolute;
   left: 0;
   top: 50%;
@@ -236,6 +250,7 @@ body {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   color: white;
+  cursor: pointer;
 }
 @media (max-width: 767px) {
   .landing .change-background {
