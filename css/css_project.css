@@ -574,6 +574,53 @@ body {
 }
 
 /* contact end */
+/* silder start */
+.slider {
+  margin-block: 100px;
+  position: relative;
+  height: 100vh;
+}
+.slider .side {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  cursor: default;
+}
+.slider .side .title {
+  color: white;
+  font-size: 8vw;
+  margin: 0 15vw;
+  width: 70vw;
+  font-family: "Rubik", sans-serif;
+}
+.slider #left-side {
+  background-color: #6e07f3;
+  z-index: 2;
+  width: 30%;
+}
+.slider #right-side {
+  background-color: #e89c29;
+}
+.slider .side .title .fancy {
+  font-family: "Lobster", cursive;
+  font-size: 1.3em;
+}
+.slider #right-side .title {
+  color: black;
+}
+.slider #right-side .title .fancy {
+  color: white;
+}
+.slider #left-side .title {
+  color: white;
+}
+.slider #left-side .title .fancy {
+  color: #e89c29;
+}
+/* silder end */
 /* footer start */
 .copied {
   position: relative;

@@ -75,3 +75,17 @@ if(localStorage.getItem("darkMode") === "false"){
     document.body.classList.add("darkMode")
     btn.src = "/img/moon.svg"
 }
+
+
+// slider
+
+let left = document.getElementById("left-side")
+
+let handleOnMove = e => {
+    let position = e.clientX / window.innerWidth * 100
+
+    left.style.width = `${position}%`
+}
+
+document.onmousemove = e => handleOnMove(e)
+document.ontouchmove = e => handleOnMove(e)
