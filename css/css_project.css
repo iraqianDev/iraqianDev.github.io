@@ -574,7 +574,7 @@ body {
 }
 
 /* contact end */
-/* silder start */
+/* slider start */
 .slider {
   margin-block: 100px;
   position: relative;
@@ -593,7 +593,6 @@ body {
   color: white;
   font-size: 8vw;
   margin: 0 15vw;
-
   width: 70vw;
   font-family: "Rubik", sans-serif;
 }
@@ -621,7 +620,7 @@ body {
 .slider #left-side .title .fancy {
   color: #e89c29;
 }
-/* silder end */
+/* slider end */
 /* footer start */
 .copied {
   position: relative;
