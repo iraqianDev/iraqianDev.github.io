@@ -128,6 +128,7 @@ body {
   transform: translateX(100px);
   transition-duration: 0.3s;
   border: 2px solid white;
+  z-index: 100000;
 }
 .active {
   transform: translateX(0px);
@@ -158,6 +159,7 @@ body {
   top: 0px;
   z-index: 10;
   color: inherit;
+  z-index: 1000;
 }
 .nav .container ul {
   display: flex;
@@ -409,13 +411,53 @@ body {
   transition-duration: var(--trans-duration);
   z-index: 1;
 }
-.work .container .box:hover img {
-  transform: scale(1.3) rotate(5deg);
-  opacity: 0;
+@media (hover: hover) {
+  .work .container .box:hover img {
+    transform: scale(1.3) rotate(5deg);
+    opacity: 0;
+  }
+  .work .container .box:hover::before {
+    background-color: #141c3a;
+  }
 }
-.work .container .box:hover::before {
-  background-color: #141c3a;
+/* animation for mobile devices start */
+@media (hover: none) {
+  .work .container .box .text {
+    animation: noHovertxt 3s infinite alternate;
+  }
+  .work .container .box img {
+    animation: noHover 3s infinite alternate;
+  }
+  .work .container .box::before {
+    animation: noHoverbg 3s infinite alternate;
+  }
 }
+@keyframes noHover {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.3) rotate(5deg);
+  }
+}
+@keyframes noHovertxt {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes noHoverbg {
+  0% {
+    background-color: #6d07f328;
+  }
+  100% {
+    background-color: #141c3a;
+  }
+}
+/* animation for mobile devices end */
 .work .container .box .text {
   position: absolute;
   top: 50%;

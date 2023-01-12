@@ -15,7 +15,8 @@
             font-family: Arial, Helvetica, sans-serif;
             }
             .container {
-            width: 500px;
+            width: 80%;
+            max-width: 600px;
             margin: 20px auto;
             }
             .form {
@@ -59,6 +60,8 @@
             transition: 0.3s;
             border: 1px solid #ccc;
             cursor: pointer;
+            overflow-wrap: anywhere;
+            
             }
             .tasks .task:not(:last-child) {
             margin-bottom: 15px;
@@ -66,8 +69,12 @@
             .tasks .task:hover {
             background-color: #f7f7f7;
             }
-            .tasks .task.done:not(span) {
+            .tasks .task.done {
             opacity: 0.5;
+            
+            }
+            .tasks .task.done .del{
+                opacity: 1 !important;
             }
             .tasks .task span {
             font-weight: bold;
