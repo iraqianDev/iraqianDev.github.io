@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- site title -->
+    <title>show on scroll</title>
+    <!-- description of site -->
+    <meta name="description" content="Live review of javascript code projects">
+    <!-- logo on the website name -->
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/person.svg" />
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        color: White;
+        font-size: 50px;
+        font-weight: bold;
+        padding: 100px;
+        overflow: hidden;
+    }
+.hidden{
+    transform: translateX(100%);
+    opacity: 0;
+    filter: blur(5px);
+    transition-duration: 1s;
+}
+.hidden.show{
+    transform: translateX(0%);
+    opacity: 1;
+    filter: blur(0px);
+}
+</style>
+<body>
+    <div style="background-color: red; height: 100vh;">Scroll down</div>
+    <div style="background-color: green;"><span class="hidden" >This is a really cool title
+    </span>
+    </div>
+    <div style="background-color: blue;"><span class="hidden" >dam i can't believe how cool this effect is
+    </span></div>
+    <div style="background-color: black;"><span class="hidden" >i hope you enjoyed it :)
+    </span></div>
+
+</body>
+</html>
+<script>
+    // show on scroll
+
+    let observer = new IntersectionObserver((e) => {
+        e.forEach((entry) => {
+            console.log(entry)
+            if(entry.isIntersecting){
+                entry.target.classList.add("show")
+            }
+        })
+    })
+
+    let hiddenElement = document.querySelectorAll(".hidden")
+    
+    hiddenElement.forEach((e) => observer.observe(e))
+    </script>
