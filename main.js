@@ -89,3 +89,18 @@ let handleOnMove = e => {
 
 document.onmousemove = e => handleOnMove(e)
 document.ontouchmove = e => handleOnMove(e)
+
+   // show on scroll
+
+   let observer = new IntersectionObserver((e) => {
+    e.forEach((entry) => {
+        console.log(entry)
+        if(entry.isIntersecting){
+            entry.target.classList.add("show")
+        }
+    })
+})
+
+let hiddenElement = document.querySelectorAll(".hidden")
+
+hiddenElement.forEach((e) => observer.observe(e))
