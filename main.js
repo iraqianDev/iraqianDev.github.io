@@ -94,7 +94,6 @@ document.ontouchmove = e => handleOnMove(e)
 
    let observer = new IntersectionObserver((e) => {
     e.forEach((entry) => {
-        console.log(entry)
         if(entry.isIntersecting){
             entry.target.classList.add("show")
         }
