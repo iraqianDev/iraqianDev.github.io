@@ -88,7 +88,7 @@ let handleOnMove = e => {
 }
 
 document.onmousemove = e => handleOnMove(e)
-document.ontouchmove = e => handleOnMove(e)
+document.ontouchmove = e => handleOnMove(e.touches[0]);
 
    // show on scroll
 
