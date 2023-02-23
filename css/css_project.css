@@ -145,15 +145,11 @@ body {
 	}
 }
 .hidden {
-	transform: translateY(25px);
 	opacity: 0;
-	filter: blur(5px);
 	transition-duration: 1s;
 }
 .hidden.show {
-	transform: translateY(0);
 	opacity: 1;
-	filter: blur(0px);
 }
 /* cool stuff end*/
 /* nav start */
