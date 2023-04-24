@@ -4,7 +4,7 @@ Hello, and welcome to my portfolio! My name is Muneer, and I am a frontend devel
 
 ## My Websites
 
-- [https://muneerdev.github.io/](https://muneerdev.github.io/)
+- [Portfolio](https://muneerdev.github.io/)
 
   This is one of my latest projects, which I built using HTML,CSS,JavaScript. It is a personal portfolio. I really enjoyed working on this project, and I'm proud of what I accomplished. making this sharpens my skills and debugging
 
