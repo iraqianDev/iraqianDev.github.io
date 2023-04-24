@@ -72,6 +72,6 @@ Hello, and welcome to my portfolio! My name is Muneer, and I am a frontend devel
 
 ## About Me
 
-I have been working as a frontend developer for 1 years and have experience in HTML,CSS,Javascript,React,Tailwind,Nextjs. I am passionate about building beautiful and functional websites that provide a great user experience.
+I have been working as a frontend developer for 1 year and have experience in HTML,CSS,Javascript,React,Tailwind,Nextjs. I am passionate about building beautiful and functional websites that provide a great user experience.
 
 I am always looking for new challenges and opportunities to grow as a developer, so feel free to contact me if you would like to collaborate on a project or have any questions. Thank you for taking the time to visit my portfolio!
