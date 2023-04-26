@@ -164,29 +164,92 @@ body {
   height: 3rem;
   border-radius: 50%;
   position: relative;
+  cursor: pointer;
+  border: var(--background) 2px solid;
+}
+.social .shape.active {
+  z-index: 1;
+}
+.social .shape.active ul {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in;
+  pointer-events: none;
+}
+.social .shape ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 .social .shape span {
   width: 5px;
-  height: 20px;
+  height: 25px;
   border-radius: 10px;
-  background-color: black;
+  background-color: var(--background);
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transition-duration: 300ms;
 }
-.social .shape:nth-child(1) {
-  transform: rotate(35deg);
+.social .shape .left {
+  transform: translate(-50%, -50%) rotate(35deg);
 }
-.social .shape:nth-child(2) {
-  transform: rotate(-35deg);
+.social .shape .right {
+  transform: translate(-50%, -50%) rotate(-35deg);
+}
+.social .shape.active .left {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.social .shape.active .right {
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+.social .shape::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  transition-duration: 300ms;
+  height: 12.5rem;
+  border-radius: 50px;
+  background-color: #9a56f3;
+  z-index: -1;
+  top: 0;
+  left: 0%;
+  opacity: 1;
+}
+.social .shape.active::after {
+  content: "";
+  width: 100%;
+  position: absolute;
+  transition-duration: 300ms;
+  height: 100%;
+  border-radius: 50px;
+  background-color: var(--main-color);
+  z-index: -2;
+  top: 0;
+  left: 0%;
 }
 .social ul {
   display: grid;
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.social svg {
+  fill: var(--background);
 }
 .social svg {
   width: 2rem;
   height: 2rem;
+  transition-duration: 300ms;
+}
+@media (max-width: 773px) {
+  .social {
+    top: 7rem;
+    right: 1rem;
+    transform: scale(0.8);
+  }
 }
 /* Social end */
 /* cool stuff end*/
