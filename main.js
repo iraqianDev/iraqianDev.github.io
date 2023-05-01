@@ -91,7 +91,7 @@ let hiddenElement = document.querySelectorAll(".hidden");
 
 hiddenElement.forEach((e) => observer.observe(e));
 
-//Scoial button
+//Scoial button functions
 
 let social = document.querySelector(".shape");
 
