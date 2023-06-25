@@ -209,7 +209,7 @@ body {
   width: 100%;
   position: absolute;
   transition-duration: 300ms;
-  height: 12.5rem;
+  height: 8rem;
   border-radius: 50px;
   background-color: #9a56f3;
   z-index: -1;
