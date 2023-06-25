@@ -1,6 +1,6 @@
 # Welcome to My Portfolio!
 
-Hello, and welcome to my portfolio! My name is Muneer, and I am a frontend developer. Here you can find some of my recent work and personal projects, as well as learn more about my skills and experience.
+Hello, and welcome to my portfolio!  I am a frontend developer. Here you can find some of my recent work and personal projects, as well as learn more about my skills and experience.
 
 ## My Websites
 
